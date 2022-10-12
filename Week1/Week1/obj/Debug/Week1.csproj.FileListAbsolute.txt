@@ -1,0 +1,8 @@
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\bin\Debug\Week1.exe.config
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\bin\Debug\Week1.exe
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\bin\Debug\Week1.pdb
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\obj\Debug\Week1.csproj.AssemblyReference.cache
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\obj\Debug\Week1.csproj.SuggestedBindingRedirects.cache
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\obj\Debug\Week1.csproj.CoreCompileInputs.cache
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\obj\Debug\Week1.exe
+C:\Users\CBU\source\repos\NetProgrammingLecturerNotes\Week1\obj\Debug\Week1.pdb
