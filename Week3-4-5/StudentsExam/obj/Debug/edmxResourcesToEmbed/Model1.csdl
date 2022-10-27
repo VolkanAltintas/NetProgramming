@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbStudentRegisterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblLesson">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lessonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblNotes" Relationship="Self.FK_tblNotes_tblLesson" FromRole="tblLesson" ToRole="tblNotes" />
+  </EntityType>
+  <EntityType Name="tblNote">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lesson" Type="Int32" />
+    <Property Name="student" Type="Int32" />
+    <Property Name="exam1" Type="Int16" />
+    <Property Name="exam2" Type="Int16" />
+    <Property Name="average" Type="Double" />
+    <Property Name="state" Type="Boolean" />
+    <NavigationProperty Name="tblLesson" Relationship="Self.FK_tblNotes_tblLesson" FromRole="tblNotes" ToRole="tblLesson" />
+    <NavigationProperty Name="tblStudent" Relationship="Self.FK_tblNotes_tblStudents" FromRole="tblNotes" ToRole="tblStudents" />
+  </EntityType>
+  <EntityType Name="tblStudent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblNotes" Relationship="Self.FK_tblNotes_tblStudents" FromRole="tblStudents" ToRole="tblNotes" />
+  </EntityType>
+  <Association Name="FK_tblNotes_tblLesson">
+    <End Role="tblLesson" Type="Self.tblLesson" Multiplicity="0..1" />
+    <End Role="tblNotes" Type="Self.tblNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLesson">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblNotes">
+        <PropertyRef Name="lesson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNotes_tblStudents">
+    <End Role="tblStudents" Type="Self.tblStudent" Multiplicity="0..1" />
+    <End Role="tblNotes" Type="Self.tblNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStudents">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblNotes">
+        <PropertyRef Name="student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbStudentRegisterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblLessons" EntityType="Self.tblLesson" />
+    <EntitySet Name="tblNotes" EntityType="Self.tblNote" />
+    <EntitySet Name="tblStudents" EntityType="Self.tblStudent" />
+    <AssociationSet Name="FK_tblNotes_tblLesson" Association="Self.FK_tblNotes_tblLesson">
+      <End Role="tblLesson" EntitySet="tblLessons" />
+      <End Role="tblNotes" EntitySet="tblNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNotes_tblStudents" Association="Self.FK_tblNotes_tblStudents">
+      <End Role="tblStudents" EntitySet="tblStudents" />
+      <End Role="tblNotes" EntitySet="tblNotes" />
+    </AssociationSet>
+    <FunctionImport Name="NOTLIST" ReturnType="Collection(dbStudentRegisterModel.NOTLIST_Result)" />
+  </EntityContainer>
+  <ComplexType Name="NOTLIST_Result">
+    <Property Type="String" Name="Name_Lastname" Nullable="true" MaxLength="101" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int16" Name="exam1" Nullable="true" />
+    <Property Type="Int16" Name="exam2" Nullable="true" />
+    <Property Type="Double" Name="average" Nullable="true" />
+  </ComplexType>
+</Schema>
