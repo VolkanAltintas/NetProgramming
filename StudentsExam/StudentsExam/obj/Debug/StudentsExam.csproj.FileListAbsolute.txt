@@ -1,0 +1,16 @@
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\StudentsExam.exe.config
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\StudentsExam.exe
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\StudentsExam.pdb
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\EntityFramework.dll
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\EntityFramework.SqlServer.dll
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\EntityFramework.xml
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\bin\Debug\EntityFramework.SqlServer.xml
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.csproj.AssemblyReference.cache
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.csproj.SuggestedBindingRedirects.cache
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.Form1.resources
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.Properties.Resources.resources
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.csproj.GenerateResource.cache
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.csproj.CoreCompileInputs.cache
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.csproj.CopyComplete
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.exe
+D:\NetProgramming\LectureNotes\StudentsExam\StudentsExam\obj\Debug\StudentsExam.pdb

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbStudentRegisterModelStoreContainer" CdmEntityContainer="dbStudentRegisterEntities">
+    <EntitySetMapping Name="tblLessons">
+      <EntityTypeMapping TypeName="dbStudentRegisterModel.tblLesson">
+        <MappingFragment StoreEntitySet="tblLesson">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lessonName" ColumnName="lessonName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNotes">
+      <EntityTypeMapping TypeName="dbStudentRegisterModel.tblNote">
+        <MappingFragment StoreEntitySet="tblNotes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lesson" ColumnName="lesson" />
+          <ScalarProperty Name="student" ColumnName="student" />
+          <ScalarProperty Name="exam1" ColumnName="exam1" />
+          <ScalarProperty Name="exam2" ColumnName="exam2" />
+          <ScalarProperty Name="average" ColumnName="average" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStudents">
+      <EntityTypeMapping TypeName="dbStudentRegisterModel.tblStudent">
+        <MappingFragment StoreEntitySet="tblStudents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="NOTLIST" FunctionName="dbStudentRegisterModel.Store.NOTLIST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbStudentRegisterModel.NOTLIST_Result">
+          <ScalarProperty Name="Name_Lastname" ColumnName="Name Lastname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="exam1" ColumnName="exam1" />
+          <ScalarProperty Name="exam2" ColumnName="exam2" />
+          <ScalarProperty Name="average" ColumnName="average" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
