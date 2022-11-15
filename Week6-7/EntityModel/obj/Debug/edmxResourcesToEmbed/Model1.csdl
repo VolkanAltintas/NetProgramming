@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbStudentsRegisterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblLectures">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="lectureName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblNotes" Relationship="Self.FK_tblNotes_tblLectures" FromRole="tblLectures" ToRole="tblNotes" />
+  </EntityType>
+  <EntityType Name="tblNotes">
+    <Key>
+      <PropertyRef Name="notId" />
+    </Key>
+    <Property Name="notId" Type="Int32" Nullable="false" />
+    <Property Name="student" Type="Int32" />
+    <Property Name="lecture" Type="Int32" />
+    <Property Name="exam1" Type="Int16" />
+    <Property Name="exam2" Type="Int16" />
+    <Property Name="exam3" Type="Int16" />
+    <Property Name="average" Type="Double" />
+    <Property Name="state" Type="Boolean" />
+    <NavigationProperty Name="tblLectures" Relationship="Self.FK_tblNotes_tblLectures" FromRole="tblNotes" ToRole="tblLectures" />
+    <NavigationProperty Name="tblStudents" Relationship="Self.FK_tblNotes_tblStudents" FromRole="tblNotes" ToRole="tblStudents" />
+  </EntityType>
+  <EntityType Name="tblStudents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="photo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblNotes" Relationship="Self.FK_tblNotes_tblStudents" FromRole="tblStudents" ToRole="tblNotes" />
+  </EntityType>
+  <Association Name="FK_tblNotes_tblLectures">
+    <End Role="tblLectures" Type="Self.tblLectures" Multiplicity="0..1" />
+    <End Role="tblNotes" Type="Self.tblNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLectures">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblNotes">
+        <PropertyRef Name="lecture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNotes_tblStudents">
+    <End Role="tblStudents" Type="Self.tblStudents" Multiplicity="0..1" />
+    <End Role="tblNotes" Type="Self.tblNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStudents">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblNotes">
+        <PropertyRef Name="student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbStudentsRegisterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblLectures" EntityType="Self.tblLectures" />
+    <EntitySet Name="tblNotes" EntityType="Self.tblNotes" />
+    <EntitySet Name="tblStudents" EntityType="Self.tblStudents" />
+    <AssociationSet Name="FK_tblNotes_tblLectures" Association="Self.FK_tblNotes_tblLectures">
+      <End Role="tblLectures" EntitySet="tblLectures" />
+      <End Role="tblNotes" EntitySet="tblNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNotes_tblStudents" Association="Self.FK_tblNotes_tblStudents">
+      <End Role="tblStudents" EntitySet="tblStudents" />
+      <End Role="tblNotes" EntitySet="tblNotes" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="dbStudentsRegisterModel.sysdiagrams" />
+    <FunctionImport Name="NOTLISTESI" ReturnType="Collection(dbStudentsRegisterModel.NOTLISTESI_Result)" />
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="NOTLISTESI_Result">
+    <Property Type="Int32" Name="notıd" Nullable="false" />
+    <Property Type="String" Name="Name_Lastname" Nullable="true" MaxLength="61" />
+    <Property Type="Int16" Name="exam1" Nullable="true" />
+    <Property Type="Int16" Name="exam2" Nullable="true" />
+    <Property Type="Int16" Name="exam3" Nullable="true" />
+    <Property Type="Double" Name="average" Nullable="true" />
+    <Property Type="Boolean" Name="state" Nullable="true" />
+  </ComplexType>
+</Schema>

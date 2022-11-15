@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbStudentsRegisterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblLectures">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lectureName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblNotes">
+    <Key>
+      <PropertyRef Name="notId" />
+    </Key>
+    <Property Name="notId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student" Type="int" />
+    <Property Name="lecture" Type="int" />
+    <Property Name="exam1" Type="smallint" />
+    <Property Name="exam2" Type="smallint" />
+    <Property Name="exam3" Type="smallint" />
+    <Property Name="average" Type="float" />
+    <Property Name="state" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblStudents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="30" />
+    <Property Name="photo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_tblNotes_tblLectures">
+    <End Role="tblLectures" Type="Self.tblLectures" Multiplicity="0..1" />
+    <End Role="tblNotes" Type="Self.tblNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLectures">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblNotes">
+        <PropertyRef Name="lecture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNotes_tblStudents">
+    <End Role="tblStudents" Type="Self.tblStudents" Multiplicity="0..1" />
+    <End Role="tblNotes" Type="Self.tblNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStudents">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblNotes">
+        <PropertyRef Name="student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="NOTLISTESI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="dbStudentsRegisterModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLectures" EntityType="Self.tblLectures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNotes" EntityType="Self.tblNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStudents" EntityType="Self.tblStudents" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblNotes_tblLectures" Association="Self.FK_tblNotes_tblLectures">
+      <End Role="tblLectures" EntitySet="tblLectures" />
+      <End Role="tblNotes" EntitySet="tblNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNotes_tblStudents" Association="Self.FK_tblNotes_tblStudents">
+      <End Role="tblStudents" EntitySet="tblStudents" />
+      <End Role="tblNotes" EntitySet="tblNotes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

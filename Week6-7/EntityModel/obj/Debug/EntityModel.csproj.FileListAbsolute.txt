@@ -1,0 +1,15 @@
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityModel.exe.config
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityModel.exe
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityModel.pdb
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityFramework.dll
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityFramework.xml
+C:\Users\volka\source\repos\EntityModel\EntityModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.AssemblyReference.cache
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.Form1.resources
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.Properties.Resources.resources
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.GenerateResource.cache
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.CoreCompileInputs.cache
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.CopyComplete
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.exe
+C:\Users\volka\source\repos\EntityModel\EntityModel\obj\Debug\EntityModel.pdb
